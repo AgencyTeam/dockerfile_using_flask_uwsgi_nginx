@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    {% block content %}
+        <div class="container-fluid bg-dark">
+            <br>
+            <button type="button" onclick="location.href='order'" class="btn btn-dark">Order File</button>
+            <button type="button" onclick="location.href='distribution'" class="btn btn-dark">Distribution File</button>
+            <button type="button" onclick="location.href='upload'" class="btn btn-dark">Upload File</button>
+            <center>
+                <img src="{{ url_for('static', filename = 'img/decant.png') }}", width="100%" style="margin-left: auto; margin-right: auto; display: block;")/><br>
+            </center>
+        </div>
+    {% endblock %}

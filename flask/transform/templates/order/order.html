@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid bg-dark">
+  <center>
+    <br>
+    <legend>
+      <p class="text-white fs-2">Upload file for order</p>
+    </legend><br>
+    <img src="{{ url_for('static', filename = 'img/excel.png') }}" , width="100"
+      style="margin-left: auto; margin-right: auto; display: block;" ) /><br>
+  </center>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form action="{{ url_for('order.order_complete') }}" method="POST" enctype="multipart/form-data">
+        <p class="fs-6 text-white">
+          - (필수) xlsx, xls 형식의 파일만 선택 가능<br>
+          - (필수) 시트이름을 적어주세요.<br>
+          - 입력 칸이 비어있으면 빈 칸으로 입력됩니다.<br>
+          - 마스터파일에서 참조하지 못하는 정보가 있으면 값이 올바르게 나오지 않습니다.
+        </p>
+        <p class="text-white fs-5">1. Excel file select</p>
+        <div class="mb-4">
+          <input class="form-control" type="file" id="formFile" name="file" required>
+        </div>
+        <p class="text-white fs-5">2. Excel file sheet name</p>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문정보 시트</span>
+          <input type="text" class="form-control" name="주문시트" placeholder="ex) secoo주문영문" required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">마스타파일 시트</span>
+          <input type="text" class="form-control" name="마스타시트" placeholder="ex) 마스타파일" required>
+        </div>
+        <p class="text-white fs-5">3. Orderer information</p>
+        <p class="fs-6 text-white">
+        </p>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 이름</span>
+          <input type="text" class="form-control" name="주문자 이름" value="에이전시팀">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 전화번호</span>
+          <input type="text" class="form-control" name="주문자 전화번호" value="010-3311-7252">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 휴대폰</span>
+          <input type="text" class="form-control" name="주문자 휴대폰" value="010-3311-7252">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 이메일</span>
+          <input type="email" class="form-control" name="주문자 이메일" value="jiyeon@agencyteam.co.kr">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 우편번호</span>
+          <input type="text" class="form-control" name="주문자 우편번호" value="18469">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 고정주소</span>
+          <input type="text" class="form-control" name="주문자 고정주소" value="경기도 화성시 동탄기흥로 560">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">주문자 상세주소</span>
+          <input type="text" class="form-control" name="주문자 상세주소" value="605호">
+        </div>
+        <p class="text-white fs-5">4. Recipient information</p>
+        <p class="fs-6 text-white">
+        </p>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 이름</span>
+          <input type="text" class="form-control" name="수령자 이름" value="에이전시팀">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 전화번호</span>
+          <input type="text" class="form-control" name="수령자 전화번호" value="010-3311-7252">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 휴대폰</span>
+          <input type="text" class="form-control" name="수령자 휴대폰" value="010-3311-7252">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 이메일</span>
+          <input type="email" class="form-control" name="수령자 이메일" value="jiyeon@agencyteam.co.kr">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 우편번호</span>
+          <input type="text" class="form-control" name="수령자 우편번호" value="18469">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 고정주소</span>
+          <input type="text" class="form-control" name="수령자 고정주소" value="경기도 화성시 동탄기흥로 560">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">수령자 상세주소</span>
+          <input type="text" class="form-control" name="수령자 상세주소" value="605호">
+        </div>
+        <p class="text-white fs-5">5. Other information</p>
+        <p class="fs-6 text-white">
+        </p>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">상점ID</span>
+          <input type="text" class="form-control" name="상점ID">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">업체 코드</span>
+          <input type="text" class="form-control" name="업체 코드">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">외부몰 부주문 코드</span>
+          <input type="text" class="form-control" name="외부몰 부주문 코드">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">환율</span>
+          <input type="text" class="form-control" name="환율" value="165">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">LF CJ운송장</span>
+          <input type="text" class="form-control" name="LF CJ운송장">
+        </div>
+        <div class="input-group mb-3">
+          <span class="w-25 input-group-text" id="basic-addon1">SF EXPRESS 운송장</span>
+          <input type="text" class="form-control" name="SF EXPRESS 운송장">
+        </div>
+        <center><button type="submit" class="btn btn-secondary btn-lg">Upload</button><br></center>
+        <br>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock %}

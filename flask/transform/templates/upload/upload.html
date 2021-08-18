@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-dark">
+        <center><h2><p class="text-white">Upload Brand Data for Server!</p></h2></center>
+        <br>
+        <img src="{{ url_for('static', filename = 'img/decant.png') }}", width="200" 
+            style="margin-left: auto; margin-right: auto; display: block;")/>
+        
+        <div class="container">
+            <br><br>
+            <form action = "{{ url_for('upload.upload_complete') }}" method = "POST" enctype = "multipart/form-data">
+            <div class="input-group mb-3 mx-auto w-25">
+                <div class="mb-4">
+                    <!-- <input class="form-control" type="file"  name="file" accept=".zip" required> -->
+                    <input class="form-control" type="file" name="file" accept=".xlsx" required>
+                </div>
+            </div>
+            <div class="mx-auto w-25">
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="server" value="Domestic" id="defaultCheck1">
+                <label class="form-check-label text-left text-light" for="defaultCheck1">국내 서버</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="server" value="SouthEastAsia" id="defaultCheck1">
+                    <label class="form-check-label text-left text-light" for="defaultCheck1">동남아 서버</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="server" value="China" id="defaultCheck1">
+                    <label class="form-check-label text-left text-light" for="defaultCheck1">중국(위챗) 서버</label>
+                </div>
+                </div>
+            <br><br>
+            <div class="text-center"><input type="submit" value="Upload" class="btn btn-secondary"></div>
+            <br><br>
+            </form>
+        </div>
+    </div>
+{% endblock %}

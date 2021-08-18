@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container-fluid bg-dark">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col align-self-center" style="padding: 10% 0px 20% 0px;">
+        <form method="POST">
+          <center>
+            <p class="text-white fs-5">Login</p>
+          </center>
+          <hr style="border: solid 3px white;">
+          <input type="text" class="form-control" id="formGroupExampleInput" name="username" placeholder="아이디" required>
+          <br>
+          <input type="password" class="form-control" id="formGroupExampleInput" name="password" placeholder="비밀번호" required>
+          <br>
+          <center>
+            <button type="submit" class="btn btn-secondary">로그인</button><br>
+          </center>
+        </form>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}
