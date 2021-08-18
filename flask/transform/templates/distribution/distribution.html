@@ -1,120 +1,138 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container-fluid bg-dark">
-        <center>
-            <br><legend><p class="text-white fs-1">Upload File for Distribution</p></legend><br>
-            <img src="{{ url_for('static', filename = 'img/excel.png') }}", width="100" 
-                style="margin-left: auto; margin-right: auto; display: block;")/><br>
-        </center>
-        <center>
-            <p class="text-white fs-6">
-                * 수정이 필요한 항목이나 추가할 항목의 값만 입력해주세요.<br>
-                * 값을 입력하지 않으면 기본값 또는 공백으로 입력됩니다.<br>
-            </p>
-        </center>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <form action = "{{url_for('distribution.distribution_complete')}}" method = "POST" enctype = "multipart/form-data">
-                    <p class="text-white fs-5">1. Excel file select</p>
-                    <div class="mb-4">
-                        <input class="form-control" name="file" type="file" id="formFile">
-                    </div>
-                    <p class="text-white fs-5">2. Shipper's information</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon3">Customer Account No.</span>
-                        <input type="text" class="form-control" name="Customer Account No." placeholder="">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Company Name</span>
-                        <input type="text" class="form-control" name = "Company Name" placeholder="">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Contact Name</span>
-                        <input type="text" class="form-control" value="Jiyeon Song" name="Contact Name" placeholder="Jiyeon Song">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Tel</span>
-                        <input type="text" class="form-control" value="821033117252" name="Tel" placeholder="821033117252">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Address</span>
-                        <input type="text" class="form-control" name = "Address" value="Room 1319, Mirabell tower 13F, 362-2, Yeongcheon-dong" placeholder="Room 1319, Mirabell tower 13F, 362-2, Yeongcheon-dong">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">City</span>
-                        <input type="text" class="form-control" name = "City" value="Hwaseong-si" placeholder="Hwaseong-si">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Province</span>
-                        <input type="text" class="form-control" name = "Province" value="Gyeonggi-do" placeholder="Gyeonggi-do">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Country/Region</span>
-                        <input type="text" class="form-control" name = "Country/Region" value="Korea" placeholder="Korea">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Email</span>
-                        <input type="text" class="form-control" name = "Email">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Postal Code</span>
-                        <input type="text" class="form-control" name = "Postal Code" value="18469" placeholder="18469">
-                    </div>
+<div class="container-fluid bg-dark">
+    <center>
+        <br>
+        <legend>
+            <p class="text-white fs-1">Upload File for Distribution</p>
+        </legend><br>
+        <img src="{{ url_for('static', filename = 'img/excel.png') }}" , width="100"
+            style="margin-left: auto; margin-right: auto; display: block;" ) /><br>
+    </center>
+    <center>
+        <p class="text-white fs-6">
+            * 수정이 필요한 항목이나 추가할 항목의 값만 입력해주세요.<br>
+            * 값을 입력하지 않으면 기본값 또는 공백으로 입력됩니다.<br>
+        </p>
+    </center>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="{{url_for('distribution.distribution_complete')}}" method="POST"
+                enctype="multipart/form-data">
+                <p class="text-white fs-5">1. Excel file select</p>
+                <div class="mb-4">
+                    <input class="form-control" name="file" type="file" id="formFile">
+                </div>
+                <p class="text-white fs-5">2. Excel file sheet name</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">order sheet</span>
+                    <input type="text" class="form-control" name="sheet" placeholder="ex) secoo주문영문" required>
+                </div>
+                <p class="text-white fs-5">3. Shipper's information</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon3">Customer Account No.</span>
+                    <input type="text" class="form-control" name="Customer Account No." placeholder="">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Company Name</span>
+                    <input type="text" class="form-control" name="Company Name" placeholder="">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Contact Name</span>
+                    <input type="text" class="form-control" value="Jiyeon Song" name="Contact Name"
+                        placeholder="Jiyeon Song">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Tel</span>
+                    <input type="text" class="form-control" value="821033117252" name="Tel" placeholder="821033117252">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Address</span>
+                    <input type="text" class="form-control" name="Address"
+                        value="Room 1319, Mirabell tower 13F, 362-2, Yeongcheon-dong"
+                        placeholder="Room 1319, Mirabell tower 13F, 362-2, Yeongcheon-dong">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">City</span>
+                    <input type="text" class="form-control" name="City" value="Hwaseong-si" placeholder="Hwaseong-si">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Province</span>
+                    <input type="text" class="form-control" name="Province" value="Gyeonggi-do"
+                        placeholder="Gyeonggi-do">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Country/Region</span>
+                    <input type="text" class="form-control" name="Country/Region" value="Korea" placeholder="Korea">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Email</span>
+                    <input type="text" class="form-control" name="Email">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Postal Code</span>
+                    <input type="text" class="form-control" name="Postal Code" value="18469" placeholder="18469">
+                </div>
 
 
-                    <p class="text-white fs-5">3. Receiver's Information</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Receiver Country/Region</span>
-                        <input type="text" name="Receiver Country/Region" value="China" class="form-control" placeholder="China">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Receiver Credentials Type</span>
-                        <input type="text" name="Receiver Credentials Type" value="ID" class="form-control" placeholder="ID">
-                    </div>
+                <p class="text-white fs-5">4. Receiver's Information</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Receiver Country/Region</span>
+                    <input type="text" name="Receiver Country/Region" value="China" class="form-control"
+                        placeholder="China">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Receiver Credentials Type</span>
+                    <input type="text" name="Receiver Credentials Type" value="ID" class="form-control"
+                        placeholder="ID">
+                </div>
 
-                    <p class="text-white fs-5">4. Description of Contents</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Currency</span>
-                        <input type="text" name="Currency" value="CNY" class="form-control" placeholder="CNY">
-                    </div>
+                <p class="text-white fs-5">5. Description of Contents</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Currency</span>
+                    <input type="text" name="Currency" value="CNY" class="form-control" placeholder="CNY">
+                </div>
 
-                    <p class="text-white fs-5">5. Shipment Type</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Shipment Type</span>
-                        <input type="text" name="Shipment Type" class="form-control" value="International Standard Express - Parcel" placeholder="International Standard Express - Parcel">
-                    </div>
-                    
-                    <p class="text-white fs-5">6. Shipment Details</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Total Package</span>
-                        <input type="text" name="Total Package" class="form-control" value="1" placeholder="1">
-                    </div>
-                    <p class="text-white fs-5">7. District Code</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Self Pickup</span>
-                        <input type="text" name="Self Pickup" class="form-control">
-                    </div>
-                    <p class="text-white fs-5">8. Payment of Freight Charges</p>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Payment Method</span>
-                        <input type="text" name="Payment Method" class="form-control" value="Shipper" placeholder="Shipper">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Account No.</span>
-                        <input type="text" name="Account No." class="form-control" value="0825004317" placeholder="0825004317">
-                    </div>
-                    <!-- <div class="input-group mb-3">
+                <p class="text-white fs-5">6. Shipment Type</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Shipment Type</span>
+                    <input type="text" name="Shipment Type" class="form-control"
+                        value="International Standard Express - Parcel"
+                        placeholder="International Standard Express - Parcel">
+                </div>
+
+                <p class="text-white fs-5">7. Shipment Details</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Total Package</span>
+                    <input type="text" name="Total Package" class="form-control" value="1" placeholder="1">
+                </div>
+                <p class="text-white fs-5">8. District Code</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Self Pickup</span>
+                    <input type="text" name="Self Pickup" class="form-control">
+                </div>
+                <p class="text-white fs-5">9. Payment of Freight Charges</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Payment Method</span>
+                    <input type="text" name="Payment Method" class="form-control" value="Shipper" placeholder="Shipper">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Account No.</span>
+                    <input type="text" name="Account No." class="form-control" value="0825004317"
+                        placeholder="0825004317">
+                </div>
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Third Party District Code</span>
                         <input type="text" name="Third Party District Code" class="form-control">
                     </div> -->
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Tax payment</span>
-                        <input type="text" name="Tax payment" class="form-control" value="Shipper" placeholder="Shipper">
-                    </div>
-                    
-                    <!-- <p class="text-white fs-5">10. Commercial Invoice</p>
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Tax payment</span>
+                    <input type="text" name="Tax payment" class="form-control" value="Shipper" placeholder="Shipper">
+                </div>
+
+                <!-- <p class="text-white fs-5">10. Commercial Invoice</p>
                     <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Term of Trade</span>
                         <input type="text" name="Term of Trade" class="form-control">
@@ -127,24 +145,24 @@
                         <span class="w-25 input-group-text" id="basic-addon1">Reason for Sending 2</span>
                         <input type="text" name="Reason for Sending 2" class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Remarks</span>
                         <input type="text" name="Remarks" class="form-control">
                     </div> -->
-                    <!-- <p class="text-white fs-5">11. AWB Remarks</p>
+                <!-- <p class="text-white fs-5">11. AWB Remarks</p>
                     <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">AWB Remarks</span>
                         <input type="text" name="AWB Remarks" class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Tax Account</span>
                         <input type="text" name="Tax Account" class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Add Service3</span>
                         <input type="text" name="Add Service3" class="form-control" >
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">VAT</span>
                         <input type="text" name="VAT" class="form-control">
                     </div>
@@ -164,11 +182,11 @@
                         <span class="w-25 input-group-text" id="basic-addon1">Shipper's Tax ID No.</span>
                         <input type="text" name="Shipper's Tax ID No." class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Appointment Time</span>
                         <input type="text" name="Appointment Time" class="form-control" value="date time" placeholder="date time">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Personal baggage</span>
                         <input type="text" name="Personal baggage" class="form-control">
                     </div>
@@ -188,11 +206,11 @@
                         <span class="w-25 input-group-text" id="basic-addon1">Agent Waybill</span>
                         <input type="text" name="Agent Waybill" class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Customs Clearance</span>
                         <input type="text" name="Customs Clearance" class="form-control" value="Export simple declaration" placeholder="Export simple declaration">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Shipper County</span>
                         <input type="text" name="Shipper County" class="form-control">
                     </div>
@@ -200,7 +218,7 @@
                         <span class="w-25 input-group-text" id="basic-addon1">Receiver County</span>
                         <input type="text" name="Receiver County" class="form-control">
                     </div> -->
-                    <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Shipper Credentials Type</span>
                         <input type="text" name="Shipper Credentials Type" class="form-control" value="ID" placeholder="ID">
                     </div>
@@ -208,18 +226,18 @@
                         <span class="w-25 input-group-text" id="basic-addon1">Shipper Credentials No.</span>
                         <input type="text" name="Shipper Credentials No." class="form-control">
                     </div> -->
-                    <div class="input-group mb-3">
-                        <span class="w-25 input-group-text" id="basic-addon1">Notify to pick up</span>
-                        <input type="text" name="Notify to pick up" class="form-control" value="NO" placeholder="NO">
-                    </div>
-                    <!-- <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <span class="w-25 input-group-text" id="basic-addon1">Notify to pick up</span>
+                    <input type="text" name="Notify to pick up" class="form-control" value="NO" placeholder="NO">
+                </div>
+                <!-- <div class="input-group mb-3">
                         <span class="w-25 input-group-text" id="basic-addon1">Formal Customs Declaration For Import</span>
                         <input type="text" name="Formal Customs Declaration For Import" class="form-control">
                     </div> -->
-                    <center><button type="submit" class="btn btn-secondary btn-lg">업로드</button><br></center>
-                </form>
-            </div>
-            <div class="col-md-3"></div>
+                <center><button type="submit" class="btn btn-secondary btn-lg">업로드</button><br></center>
+            </form>
         </div>
+        <div class="col-md-3"></div>
     </div>
+</div>
 {% endblock %}

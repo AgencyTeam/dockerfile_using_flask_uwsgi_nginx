@@ -4,25 +4,25 @@
     <div class="row">
         <div class="col"></div>
         <div class="col align-self-center" style="padding: 10% 0px 22% 0px;">
-        <center>
-            <p class="text-white fs-5">Transform Complete</p>
-        </center>
-        <img src="{{ url_for('static', filename = 'img/excel.png') }}" , width="100"
-            style="margin-left: auto; margin-right: auto; display: block;" ) />
-        <br>
-        <center>
-            <a href="{{ url_for('download', filename=filename) }}" download>
-            <button type="button" class="btn btn-primary">물류파일</button>
-            </a>
-        </center>
+            <center>
+                <p class="text-white fs-5">Distribution Transform Complete</p>
+            </center>
+            <img src="{{ url_for('static', filename = 'img/excel.png') }}" , width="100"
+                style="margin-left: auto; margin-right: auto; display: block;" ) />
+            <br>
+            <center>
+                <a href="{{ url_for('download', filename=filename) }}">
+                    <button type="button" class="btn btn-primary">Download</button>
+                </a>
+            </center>
         </div>
         <div class="col"></div>
     </div>
-    </div>
-    <script>
+</div>
+<!-- <script>
     function test() {
         window.open("{{ url_for('download', filename=filename) }}")
     }
     test()
-</script>
+</script> -->
 {% endblock %}
